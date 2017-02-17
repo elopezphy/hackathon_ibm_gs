@@ -1,0 +1,15 @@
+---
+declared-services:
+  conversation-simple-demo-test1:
+    label: conversation
+    plan: free
+applications:
+- name: thomas-para-hackathon
+  command: npm start
+  path: .
+  memory: 256M
+  instances: 1
+  services:
+  - conversation-service
+  env:
+    NPM_CONFIG_PRODUCTION: false

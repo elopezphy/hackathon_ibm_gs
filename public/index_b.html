@@ -1,0 +1,38 @@
+<html>
+<head>
+  <base href="/">
+  <title>Conversation Chat App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta property="og:image" content="favicon.png" />
+  <meta property="og:title" content="Media Markt PACO" />
+  <meta property="og:description" content="Sample application that shows how to use the Conversation API to identify user intents" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href="dependencies/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/app.css">
+  <link href="temp/bootstrap-slider.css" rel="stylesheet">
+
+</head>
+<body>
+  <div id="contentParent" class="responsive-columns-wrapper" >
+    <div id="chat-column-holder" class="responsive-column content-column">
+      <img src="https://www.ibm.com/cloud-computing/bluemix/sites/default/files/assets/page/icon-watson.svg" width="5%" align = "down">
+      <img src="../img/logo_ribera_salud.gif" width="20%" align="down">
+
+      <div class="chat-column">
+
+        <form action="/usuario_X" method="POST">
+          <br><br><br><br>
+                    <label><font size="4" color="white"><b>Usuario    </b></font> <input type="text" id="userName" placeholder="Usuario"></label><br><br>
+                    <label><font size="4" color="white"><b>Contraseña </b></font> <input type="password" id="password" placeholder="Escriba su contraseña" ></label><br>
+                    <br><br>
+                    <input type="submit" value="Acceder">
+                     </form>
+  </div>
+
+<script type='text/javascript' src="dependencies/js/modernizr.js"></script>
+<script src="js/conversation.js"></script>
+<script type='text/javascript' src="dependencies/js/jquery.min.js"></script>
+<script type='text/javascript' src="temp/bootstrap-slider.js"></script>
+</body>
+</html>

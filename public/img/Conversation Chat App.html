@@ -1,0 +1,198 @@
+
+<!-- saved from url=(0031)http://localhost:3000/usuario_X -->
+<html class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!--<base href="/">--><base href=".">
+  <title>Conversation Chat App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta property="og:image" content="favicon.png">
+  <meta property="og:title" content="Carrefour PACO">
+  <meta property="og:description" content="Sample application that shows how to use the Conversation API to identify user intents">
+  <link rel="shortcut icon" href="http://localhost:3000/favicon.ico" type="image/x-icon">
+  <link href="./Conversation Chat App_files/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./Conversation Chat App_files/app.css">
+  <link href="./Conversation Chat App_files/bootstrap-slider.css" rel="stylesheet">
+
+
+</head>
+<body>
+  <div id="view-change-button" class="button" onclick="PayloadPanel.togglePanel(event,this)">
+    <img class="option full" src="./Conversation Chat App_files/Chat Button.png">
+    <img class="option not-full" src="./Conversation Chat App_files/Code Button.png">
+  </div>
+  <div id="contentParent" class="responsive-columns-wrapper">
+    <div id="chat-column-holder" class="responsive-column content-column">
+      <img src="./Conversation Chat App_files/icon-watson.svg" width="5%" align="down">
+      <img src="./Conversation Chat App_files/carrefour_logo.png" width="20%" align="down">
+
+      <div class="chat-column">
+       <div id="scrollingChat"><div class="segments load"><div class="from-watson top"><div class="message-inner"><p>Hola, soy el nuevo asistente virtual de <b>Carrefour</b>.<br>Le puedo facilitar información sobre nuestras tiendas (<b>contacto, horarios, localizacion</b>,...) o acerca de los <b>tipos de entrega y envíos</b>.<br>¿En qué puedo ayudarle?</p></div></div></div><div class="segments load"><div class="from-user latest top"><div class="message-inner"><p>hola</p></div></div></div><div class="segments load"><div class="from-watson latest top"><div class="message-inner"><p>¿Cómo va eso?,si hay algo en lo que le pueda ayudar, dígamelo.</p></div></div></div></div>
+
+        <label for="textInput" class="inputOutline">
+          <input id="textInput" class="input responsive-column" placeholder="Escriba aquí por favor" type="text" onkeydown="ConversationPanel.inputKeyDown(event, this)" style="width:100%">
+        </label>
+      </div>
+    </div>
+    <div id="payload-column" class="fixed-column content-column">
+      <div id="payload-initial-message" class="hide">
+        Aquí verá el output
+      </div>
+      <div id="payload-request" class="payload"><div><div class="header-text">User input</div><div class="code-line responsive-columns-wrapper"><pre class="line-numbers">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre><pre class="payload-text responsive-column">{
+  <span class="key">"input":</span> {
+    <span class="key">"text":</span> <span class="string">"hola"</span>
+  },
+  <span class="key">"context":</span> {
+    <span class="key">"conversation_id":</span> <span class="string">"2a03c89d-b5f3-4333-8094-145a32cd90c2"</span>,
+    <span class="key">"system":</span> {
+      <span class="key">"dialog_stack":</span> [
+        <span class="string">"root"</span>
+      ],
+      <span class="key">"dialog_turn_counter":</span> <span class="number">1</span>,
+      <span class="key">"dialog_request_counter":</span> <span class="number">1</span>
+    },
+    <span class="key">"cont":</span> <span class="number">0</span>,
+    <span class="key">"N":</span> <span class="number">0</span>,
+    <span class="key">"dia_semana":</span> <span class="string">"Wed"</span>,
+    <span class="key">"dia_mes":</span> <span class="string">"02/Nov"</span>,
+    <span class="key">"hora":</span> <span class="string">"19"</span>,
+    <span class="key">"unlike":</span> <span class="boolean">false</span>
+  }
+}</pre></div></div></div>
+      <div id="payload-response" class="payload"><div><div class="header-text">Watson understands</div><div class="code-line responsive-columns-wrapper"><pre class="line-numbers">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52</pre><pre class="payload-text responsive-column">{
+  <span class="key">"intents":</span> [
+    {
+      <span class="key">"intent":</span> <span class="string">"tienda_busqueda"</span>,
+      <span class="key">"confidence":</span> <span class="number">0.09228162721485683</span>
+    }
+  ],
+  <span class="key">"entities":</span> [
+    {
+      <span class="key">"entity":</span> <span class="string">"bienvenida"</span>,
+      <span class="key">"location":</span> [
+        <span class="number">0</span>,
+        <span class="number">4</span>
+      ],
+      <span class="key">"value":</span> <span class="string">"hola"</span>
+    }
+  ],
+  <span class="key">"input":</span> {
+    <span class="key">"text":</span> <span class="string">"hola"</span>
+  },
+  <span class="key">"output":</span> {
+    <span class="key">"log_messages":</span> [],
+    <span class="key">"text":</span> [
+      <span class="string">"¿Cómo va eso?,si hay algo en lo que le pueda ayudar, dígamelo."</span>
+    ],
+    <span class="key">"nodes_visited":</span> [
+      <span class="string">"node_1_1472032197557"</span>
+    ],
+    <span class="key">"selection_policy":</span> <span class="string">"random"</span>
+  },
+  <span class="key">"context":</span> {
+    <span class="key">"conversation_id":</span> <span class="string">"2a03c89d-b5f3-4333-8094-145a32cd90c2"</span>,
+    <span class="key">"system":</span> {
+      <span class="key">"dialog_stack":</span> [
+        <span class="string">"root"</span>
+      ],
+      <span class="key">"dialog_turn_counter":</span> <span class="number">2</span>,
+      <span class="key">"dialog_request_counter":</span> <span class="number">2</span>,
+      <span class="key">"_node_output_map":</span> {
+        <span class="key">"node_1_1472032197557":</span> [
+          <span class="number">2</span>
+        ]
+      }
+    },
+    <span class="key">"cont":</span> <span class="number">0</span>,
+    <span class="key">"N":</span> <span class="number">3</span>,
+    <span class="key">"dia_semana":</span> <span class="string">"Wed"</span>,
+    <span class="key">"dia_mes":</span> <span class="string">"02/Nov"</span>,
+    <span class="key">"hora":</span> <span class="string">"19"</span>,
+    <span class="key">"unlike":</span> <span class="boolean">false</span>
+  }
+}</pre></div></div></div>
+    </div>
+  </div>
+  <script src="./Conversation Chat App_files/modernizr.js.descarga"></script>
+  <script src="./Conversation Chat App_files/jquery.min.js.descarga"></script>
+  <script src="./Conversation Chat App_files/bootstrap-slider.js.descarga"></script>
+
+  <script src="./Conversation Chat App_files/images.js.descarga"></script>
+  <script src="./Conversation Chat App_files/common.js.descarga"></script>
+  <script src="./Conversation Chat App_files/api.js.descarga"></script>
+  <script src="./Conversation Chat App_files/conversation.js.descarga"></script>
+  <script src="./Conversation Chat App_files/payload.js.descarga"></script>
+  <script src="./Conversation Chat App_files/global.js.descarga"></script><div id="textInputDummy" style="font-size: 16px; font-style: normal; font-weight: normal; font-family: &quot;Helvetica Neue for IBM&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; line-height: 21px; text-transform: none; letter-spacing: 0.24px;">hola</div>
+
+
+</body></html>
